@@ -79,7 +79,6 @@ const SearchPostModal = () => {
 
     return (
         <Modal show={showFindPostModal} 
-                animation={false} 
                 onHide={closeDialog}
             >
             <Modal.Header closeButton>
