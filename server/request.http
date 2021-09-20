@@ -1,0 +1,118 @@
+
+POST   http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username" : "tuankiet",
+    "password" : "tuankiet"
+}
+
+###
+POST   http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username" : "thanhhoa",
+    "password" : "thanhhoa"
+}
+
+###
+POST   http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username" : "tuankiet",
+    "password" : "tuankiet"
+}
+
+###
+POST   http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username" : "thanhhoa",
+    "password" : "thanhhoa"
+}
+
+###
+POST  http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE2OTY1NjV9.ugSYdDuTr8HZQuZIU7C7x_8EinZDtYYEJH-e78ej6zA
+
+{
+    "title": "React-Boostrap",
+    "description": "react-bosstraps",
+    "url" : "boostrap.com",
+    "status": "LEARNED"
+}
+
+###
+POST  http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJmNjM4MDRhMTA4NmM4MTUzMzAiLCJpYXQiOjE2MzE1MTMyMDd9.VfRxyO_V7zSfLoLATEcWS2qF5hAErh-7taj87AnHcCQ
+
+{
+    "title": "Tri Tue Nhan Tao",
+    "description": "tri tue nhan tao",
+    "url" : "https://trituenhantao.com",
+    "status": "TO LEARN"
+}
+
+###
+GET http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE1MTMwNzN9.wfICjuzimuf6CXbHohNSFCM-kKnnV6ZUETiWrCT5dos
+
+
+###
+GET http://localhost:5000/api/posts
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJmNjM4MDRhMTA4NmM4MTUzMzAiLCJpYXQiOjE2MzE1MTMyMDd9.VfRxyO_V7zSfLoLATEcWS2qF5hAErh-7taj87AnHcCQ
+
+
+###
+PUT  http://localhost:5000/api/posts/613eea65cd00702a805f362d
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE1MTMwNzN9.wfICjuzimuf6CXbHohNSFCM-kKnnV6ZUETiWrCT5dos
+
+{
+    "title": "Mang May Tinh",
+    "description": "mang may tinh",
+    "url" : "https://fit.iuh.com",
+    "status": "LEARNED"
+}
+
+
+6141d1c967b64cddebb947ac
+6141d25867b64cddebb947b6
+6141d37b67b64cddebb947ce
+6141d43e67b64cddebb947d6
+6141d45f67b64cddebb947dc
+6141d4e267b64cddebb947e6
+6141d57f67b64cddebb947f4
+
+
+###
+DELETE http://localhost:5000/api/posts/6141d57f67b64cddebb947f4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE3MDQ5MTh9.bxjJtCsuUnbTgK5Dnz9rZwaBBbnwPCeCbe63G9v2Bpw
+
+
+###
+GET http://localhost:5000/api/posts/find
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzIwMzY1NDV9.gzAscjP3SBqRDTPbV4IewU2-QFTS45Z4PhWOPF5XnEY
+
+{
+    "title" : "Vue"
+}
+
+
+###
+GET http://localhost:5000/api/posts/find
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzIwMzY1NDV9.gzAscjP3SBqRDTPbV4IewU2-QFTS45Z4PhWOPF5XnEY
+
+{
+    "title" : "",
+    "status" : "LEARNED"
+}
