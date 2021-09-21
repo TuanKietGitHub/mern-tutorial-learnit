@@ -27,6 +27,7 @@ const PostContextProvider = ({children}) => {
     const [showAddPostModal , setShowAddPostModal] = useState(false)
     const [showUpdatePostModal , setShowUpdatePostModal] = useState(false)
     const [showFindPostModal , setShowFindPostModal] = useState(false)
+    const [showPeople , setShowPeople] = useState(false)
 
     // Set Form Search
     const [ showFindPost , setShowFindPost] = useState({
@@ -153,7 +154,10 @@ const PostContextProvider = ({children}) => {
         findTitlePost,
 
         showFindPost,
-        setShowFindPost
+        setShowFindPost,
+
+        showPeople,
+        setShowPeople
 
     }
 

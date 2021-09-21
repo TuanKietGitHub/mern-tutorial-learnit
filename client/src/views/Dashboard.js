@@ -46,7 +46,7 @@ const Dashboard = () => {
     if (postLoading) {
         body = (
             <div className="spinner-container">
-                <Spinner animation='border' variant='info' />
+                <Spinner animation='border' variant='primary' />
             </div>
         )
     } else if (posts.length === 0) {
@@ -59,7 +59,7 @@ const Dashboard = () => {
                         <Card.Text>
                             Click the button below to track your skill to learn
                         </Card.Text>
-                        <Button variant='primary' onClick={setShowAddPostModal.bind(this , true)}>LaernIt</Button>
+                        <Button variant='success' onClick={setShowAddPostModal.bind(this , true)}>LaernIt</Button>
                     </Card.Body>
                 </Card>
             </>

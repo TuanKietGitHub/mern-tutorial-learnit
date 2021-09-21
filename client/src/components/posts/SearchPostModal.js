@@ -47,10 +47,7 @@ const SearchPostModal = () => {
             <>
                 <Card className='text-center mx-5 my-5'>                    
                     <Card.Body>
-                        <Card.Title>Search Results</Card.Title>
-                        <Card.Text>
-                            No results were found for your search term!
-                        </Card.Text>
+                        <Card.Title>Không tìm thấy</Card.Title>
                     </Card.Body>
                 </Card>
             </>

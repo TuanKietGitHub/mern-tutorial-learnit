@@ -8,24 +8,23 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 import Form from 'react-bootstrap/Form'
 
 import learnItLogo from '../../assets/logo.svg'
-import logoutIcon from '../../assets/logout.svg'
 import iconSearch from '../../assets/IconSearch.svg'
+import people from '../../assets/people.svg'
 
-import { AuthContext } from '../../contexts/AuthContext'
 import { useContext } from 'react'
 import { PostContext } from '../../contexts/PostContext'
 
 const NavbarMenu = () => {
 
     // Logout
-    const {
-            authState: {user: {username}} , 
-            logoutUser 
-    } = useContext(AuthContext)
+    // const {
+    //         authState: {user: {username}} , 
+    //         logoutUser 
+    // } = useContext(AuthContext)
 
-    const logout = () => {
-        logoutUser()
-    }
+    // const logout = () => {
+    //     logoutUser()
+    // }
 
     // 
     const { 
@@ -50,7 +49,7 @@ const NavbarMenu = () => {
             setShowFindPostModal(true)
         }
 
-    } 
+    }
 
     return (
         <Navbar collapseOnSelect expand="lg" bg='secondary' variant='dark' className='shadow' >
@@ -93,7 +92,6 @@ const NavbarMenu = () => {
                         aria-label="Search"
                         value={title} 
                         onChange={onChangeFindTitlePost}
-                        required
                     />
                     <Button 
                         variant='success' 
@@ -106,8 +104,15 @@ const NavbarMenu = () => {
                     </Button>
                 </Form>
 
-				<Nav>
-                    <NavDropdown title="PERSONAL"  id="collasible-nav-dropdown">
+				<Nav >
+                    <Nav.Link to='/account' as={Link}> 
+                        <img    src={people} 
+                                alt='peopelIcon' 
+                                width='30' height='30' 
+                                className='mr-2' /> 
+                    </Nav.Link>
+
+                    {/* <NavDropdown title={<img src={people}/>} show={true}  id="collasible-nav-dropdown">
                         <NavDropdown.Item>Welcomne {username}</NavDropdown.Item>
                         <NavDropdown.Divider />
                         <NavDropdown.Item>
@@ -116,9 +121,8 @@ const NavbarMenu = () => {
                                 Logout
                             </Button>
                         </NavDropdown.Item>
-                    </NavDropdown>
+                    </NavDropdown> */}
                 </Nav>
-
 			</Navbar.Collapse>
             </Container>
 		</Navbar>
