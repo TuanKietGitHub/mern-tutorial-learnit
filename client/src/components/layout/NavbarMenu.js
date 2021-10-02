@@ -54,13 +54,13 @@ const NavbarMenu = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg='secondary' variant='dark' className='shadow' >
 			<Container>
-            <Navbar.Brand className='font-weight-bolder text-white'>
+            <Navbar.Brand className='font-weight-bolder text-white' >
 				<img
 					src={learnItLogo}
 					alt='learnItLogo'
 					width='32'
 					height='32'
-					className='mr-2'
+					className='mr-2' 
 				/>
 
 				LEARNIT

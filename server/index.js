@@ -13,7 +13,7 @@ const connectDB = async() => {
         await mongoose.connect(`mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@mern-learnit.fmcxc.mongodb.net/mern-learnit?retryWrites=true&w=majority` , {
             //useCreateIndex: true,
             useNewUrlParser: true,
-            useUnifiedTopology: true,
+            useUnifiedTopology: true
             //useFindAndModify: false
         })
         console.log('MongooDB connected')
