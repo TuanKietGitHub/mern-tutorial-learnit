@@ -1,138 +1,131 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const Post = require('../models/Post')
-const verifyToken = require('../middleware/auth')
-
+const Post = require("../models/Post");
+const verifyToken = require("../middleware/auth");
 
 // @router GET api/posts
 // @desc GET posts
 // @access Private
-router.get('/' , verifyToken , async(req , res) => {
-    try {
-        const posts = await Post.find({user: req.userId}).populate('user', ['username'])
-        res.json({
-            success: true,
-            posts
-        })
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ success: false, message: 'Internal server'})
-    }
-})
-
+router.get("/", verifyToken, async (req, res) => {
+  try {
+    const posts = await Post.find({ user: req.userId }).populate("user", [
+      "username",
+    ]);
+    res.json({
+      success: true,
+      posts,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server" });
+  }
+});
 
 // @router POST api/posts
 // @desc POST posts
 // @access Private
-router.post('/' ,verifyToken , async(req , res) => {
-    const {title , description , url , status} = req.body
+router.post("/", verifyToken, async (req, res) => {
+  const { title, description, url, status } = req.body;
 
-    // Simple Validation
-    if(!title) 
-    return res 
-        .status(400)
-        .json({ 
-            success: false,
-            message: 'Title id require'
-        })
+  // Simple Validation
+  if (!title)
+    return res.status(400).json({
+      success: false,
+      message: "Title id require",
+    });
 
-        try {
-            const newPost = new Post({
-                title,
-                description,
-                url: (url.startsWith('https://')) ? url: `https://${url}`,
-                status: status || 'TO LEARN',
-                user: req.userId
-            })
+  try {
+    const newPost = new Post({
+      title,
+      description,
+      url: url.startsWith("https://") ? url : `https://${url}`,
+      status: status || "TO LEARN",
+      user: req.userId,
+    });
 
-            await newPost.save()
+    await newPost.save();
 
-            res.json({
-                success: true,
-                message: 'Create Post successfully',
-                Post: newPost
-            })  
-        } catch (error) {
-            console.log(error)
-            res.status(500).json({ success: false, message: 'Internal server'})
-        }
-})
-
+    res.json({
+      success: true,
+      message: "Create Post successfully",
+      Post: newPost,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server" });
+  }
+});
 
 // @router PUT /api/posts/:id
 // @desc PUT posts
 // @access Private
-router.put('/:id' , verifyToken , async(req , res) => {
-    const {title , description , url , status} = req.body
-    // Simple validation
-    if(!title)
-    return res  
-        .status(400)
-        .json({
-            success: false,
-            message: 'Title not found'
-        })
+router.put("/:id", verifyToken, async (req, res) => {
+  const { title, description, url, status } = req.body;
+  // Simple validation
 
-        try {
-            let updatePost = {
-                title: title,
-                description: description,
-                url: (url.startsWith('https://')) ? url: 'https://%s' ,url ,
-                status: status || 'TO LEARN'
-            }
+  if (!title)
+    return res.status(400).json({
+      success: false,
+      message: "Title not found",
+    });
 
-            const checkPostUser = {_id: req.params.id, user: req.userId}
-            updatePost = await Post.findOneAndUpdate(checkPostUser , updatePost , {new:true})
+  try {
+    let updatePost = {
+      title: title,
+      description: description,
+      url: url.startsWith("https://") ? url : "https://%s",
+      url,
+      status: status || "TO LEARN",
+    };
 
-            // User not authorised to update Post
-            if(!updatePost)
-            return res  
-                .status(401)
-                .json({
-                    success: false,
-                    message: 'Post not found or user not authorised'
-                })
+    const checkPostUser = { _id: req.params.id, user: req.userId };
+    updatePost = await Post.findOneAndUpdate(checkPostUser, updatePost, {
+      new: true,
+    });
 
-                res.json({
-                    success: true,
-                    message: 'Update successfully',
-                    Post: updatePost
-                })
-        } catch (error) {
-            console.log(error)
-            res.status(500).json({ success: false, message: 'Internal server'})
-        }
-})
+    // User not authorised to update Post
+    if (!updatePost)
+      return res.status(401).json({
+        success: false,
+        message: "Post not found or user not authorised",
+      });
 
+    res.json({
+      success: true,
+      message: "Update successfully",
+      Post: updatePost,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server" });
+  }
+});
 
 // @router DELETE /api/posts/:id
 // @desc DELETE posts
 // @access Private
-router.delete('/:id' , verifyToken , async(req , res) => {
-    try {
-        const checkPostUser = {_id: req.params.id , user: req.userId}
-        const detelePost = await Post.findOneAndDelete(checkPostUser)
+router.delete("/:id", verifyToken, async (req, res) => {
+  try {
+    const checkPostUser = { _id: req.params.id, user: req.userId };
+    const detelePost = await Post.findOneAndDelete(checkPostUser);
 
-        if(!detelePost)
-        return res 
-            .status(400) 
-            .json({
-                success: false, 
-                message: 'Post not found or user not authorised'
-            })
+    if (!detelePost)
+      return res.status(400).json({
+        success: false,
+        message: "Post not found or user not authorised",
+      });
 
-            res.json({
-                success: true,
-                message: 'Delete successfully',
-                Post: detelePost
-            })
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ success: false, message: 'Internal server'})
-    }
-})
-
+    res.json({
+      success: true,
+      message: "Delete successfully",
+      Post: detelePost,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, message: "Internal server" });
+  }
+});
 
 // @router GET api/posts/find
 // @desc GET posts
@@ -143,7 +136,7 @@ router.delete('/:id' , verifyToken , async(req , res) => {
 //         console.log(title)
 //         // Check require
 //         if(!title && !status)
-//             return res 
+//             return res
 //                 .status(400)
 //                 .json({
 //                     success: false,
@@ -194,4 +187,4 @@ router.delete('/:id' , verifyToken , async(req , res) => {
 //     }
 // })
 
-module.exports = router
+module.exports = router;

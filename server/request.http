@@ -3,9 +3,14 @@ POST   http://localhost:5000/api/auth/register
 Content-Type: application/json
 
 {
-    "username" : "tuankiet",
-    "password" : "tuankiet"
+    "username" : "tuankiet1",
+    "password" : "tuankiet1"
 }
+
+###
+GET http://localhost:5000/api/auth/
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjM5YWJlZGY2ZDBhOWU1ZDhhZTAwYjkiLCJpYXQiOjE3MTUzMTA4MzV9.ZiuvBuQ1NB-o39l5map5Per2nRlwzUuo-ux_7RZcQwc
 
 ###
 POST   http://localhost:5000/api/auth/register
@@ -21,8 +26,8 @@ POST   http://localhost:5000/api/auth/login
 Content-Type: application/json
 
 {
-    "username" : "tuankiet",
-    "password" : "tuankiet"
+    "username" : "tuan",
+    "password" : "tuan"
 }
 
 ###
@@ -37,7 +42,7 @@ Content-Type: application/json
 ###
 POST  http://localhost:5000/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE2OTY1NjV9.ugSYdDuTr8HZQuZIU7C7x_8EinZDtYYEJH-e78ej6zA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjM5YWMyYWY2ZDBhOWU1ZDhhZTAwYmQiLCJpYXQiOjE3MTUzMTA4ODZ9.YLIfzSX6fonGbtjBn-xxWbbgilFKWvDF7EHrz-nSmLU
 
 {
     "title": "React-Boostrap",
@@ -49,7 +54,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZ
 ###
 POST  http://localhost:5000/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJmNjM4MDRhMTA4NmM4MTUzMzAiLCJpYXQiOjE2MzE1MTMyMDd9.VfRxyO_V7zSfLoLATEcWS2qF5hAErh-7taj87AnHcCQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NjM5YWMyYWY2ZDBhOWU1ZDhhZTAwYmQiLCJpYXQiOjE3MTUzMTA4ODZ9.YLIfzSX6fonGbtjBn-xxWbbgilFKWvDF7EHrz-nSmLU
 
 {
     "title": "Tri Tue Nhan Tao",
@@ -61,7 +66,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZ
 ###
 GET http://localhost:5000/api/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE1MTMwNzN9.wfICjuzimuf6CXbHohNSFCM-kKnnV6ZUETiWrCT5dos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmYyZGNkYjM2MTgzMGZkY2NiZjc4MWYiLCJpYXQiOjE3MjcxOTIzODN9.5pDJzqFFpYz6NsDSjrRFQv2KBwBXLn2l9N2oVJKqxrk
 
 
 ###
@@ -71,9 +76,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZ
 
 
 ###
-PUT  http://localhost:5000/api/posts/613eea65cd00702a805f362d
+PUT  http://localhost:5000/api/posts/66f2dcea361830fdccbf7823
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTNlZDJlNzM4MDRhMTA4NmM4MTUzMmMiLCJpYXQiOjE2MzE1MTMwNzN9.wfICjuzimuf6CXbHohNSFCM-kKnnV6ZUETiWrCT5dos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmYyZGNkYjM2MTgzMGZkY2NiZjc4MWYiLCJpYXQiOjE3MjcxOTI2NzR9.y5m6XuTx8qZ8Glbt3oG60eTYgXvxyLdX7gSk7AAgiAg
 
 {
     "title": "Mang May Tinh",
